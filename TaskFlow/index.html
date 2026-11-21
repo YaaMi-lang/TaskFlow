@@ -1,0 +1,220 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskFlow — Ruang Kerja Mahasiswa</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="layout">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="brand">
+            <div class="brand-icon">✓</div>
+            <div>
+                <h2>TaskFlow</h2>
+                <p>Plan. Track. Achieve.</p>
+            </div>
+        </div>
+
+        <nav class="navigation">
+            <button type="button" class="nav-link active" data-view="home">
+                <span>⌂</span> Beranda
+            </button>
+
+            <button type="button" class="nav-link" data-view="tasks">
+                <span>☷</span> Semua Tugas
+            </button>
+        </nav>
+
+        <div class="sidebar-quote">
+            <div class="quote-icon">✦</div>
+            <p>"Selesaikan tugasmu langkah demi langkah."</p>
+            <span class="quote-line"></span>
+        </div>
+
+        <div class="sidebar-bottom">
+            <a href="#pengaturan">⚙ Pengaturan</a>
+            <a href="#tentang">ⓘ Tentang</a>
+        </div>
+
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+
+        <header class="topbar">
+            <span id="page-breadcrumb">Ruang Kerja / Beranda</span>
+
+            <div class="profile-menu">
+                <button type="button" class="profile" id="profile-toggle"
+                    aria-expanded="false" aria-controls="profile-dropdown">
+                    <span class="profile-avatar">M</span>
+                    <span class="profile-label">Mahasiswa</span>
+                    <span class="profile-chevron" aria-hidden="true">⌄</span>
+                </button>
+
+                <div class="profile-dropdown" id="profile-dropdown" hidden>
+                    <div class="profile-dropdown-heading">
+                        <div class="profile-avatar">M</div>
+                        <div>
+                            <strong>Mahasiswa</strong>
+                            <span>Pengguna TaskFlow</span>
+                        </div>
+                    </div>
+                    <div class="profile-dropdown-divider"></div>
+                    <button type="button" class="profile-menu-item" id="theme-toggle">
+                        <span class="profile-menu-icon" id="theme-icon">☾</span>
+                        <span class="profile-menu-copy">
+                            <strong id="theme-label">Mode gelap</strong>
+                            <small>Ubah tampilan aplikasi</small>
+                        </span>
+                        <span class="theme-switch" id="theme-switch" aria-hidden="true"></span>
+                    </button>
+                    <button type="button" class="profile-menu-item" id="about-toggle">
+                        <span class="profile-menu-icon">ⓘ</span>
+                        <span class="profile-menu-copy">
+                            <strong>Tentang TaskFlow</strong>
+                            <small>Informasi aplikasi</small>
+                        </span>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- BERANDA -->
+        <section class="page-view active" id="view-home">
+
+            <section class="welcome">
+                <p class="eyebrow">WORKSPACE / PERSONAL</p>
+                <h1>Halo, Mahasiswa.</h1>
+                <p class="welcome-description">
+                    Selamat datang kembali. Mari lihat perkembangan tugasmu.
+                </p>
+            </section>
+
+            <section class="task-header home-heading">
+                <div>
+                    <p class="eyebrow">YOUR PROGRESS</p>
+                    <h2>Ringkasan Aktivitas</h2>
+                </div>
+            </section>
+
+            <section class="summary">
+
+                <div class="summary-card purple-card">
+                    <span class="summary-symbol">☷</span>
+                    <div>
+                        <p>Total Tugas</p>
+                        <h3 id="total-tugas">0</h3>
+                    </div>
+                </div>
+
+                <div class="summary-card cream-card">
+                    <span class="summary-symbol">◷</span>
+                    <div>
+                        <p>Belum Selesai</p>
+                        <h3 id="belum-selesai">0</h3>
+                    </div>
+                </div>
+
+                <div class="summary-card cream-card">
+                    <span class="summary-symbol">✓</span>
+                    <div>
+                        <p>Tugas Selesai</p>
+                        <h3 id="tugas-selesai">0</h3>
+                    </div>
+                </div>
+
+            </section>
+
+            <section class="home-action">
+                <div>
+                    <p class="eyebrow">KEEP GOING</p>
+                    <h2>Siap menyelesaikan tugas berikutnya?</h2>
+                    <p>Lihat seluruh daftar tugas dan lanjutkan pekerjaanmu.</p>
+                </div>
+
+                <button type="button" class="btn-tambah" data-view="tasks">
+                    Lihat Semua Tugas →
+                </button>
+            </section>
+
+            <footer class="footer">
+                <span>TaskFlow</span>
+                <span>Produktivitas dimulai dari hal kecil.</span>
+            </footer>
+
+        </section>
+
+        <!-- SEMUA TUGAS -->
+        <section class="page-view" id="view-tasks">
+
+            <section class="welcome">
+                <p class="eyebrow">WORKSPACE / TASK MANAGEMENT</p>
+                <h1>Semua Tugas.</h1>
+                <p class="welcome-description">
+                    Catat, kelola, dan selesaikan tugas kuliahmu di sini.
+                </p>
+            </section>
+
+            <section class="add-task-section">
+                <form id="form-todo">
+                    <input
+                        type="text"
+                        id="input-todo"
+                        placeholder="Apa yang ingin kamu kerjakan?"
+                        autocomplete="off"
+                        required
+                    >
+
+                    <button type="submit" class="btn-tambah">
+                        <span>＋</span> Tambah Tugas
+                    </button>
+                </form>
+            </section>
+
+            <section class="task-section">
+
+                <div class="task-header">
+                    <div>
+                        <p class="eyebrow">YOUR ACTIVITIES</p>
+                        <h2>Daftar Tugas</h2>
+                    </div>
+
+                    <span class="task-label">MY TASKS</span>
+                </div>
+
+                <div class="task-status">
+                    <span class="status-dot"></span>
+                    <span id="stats">0 tugas belum selesai</span>
+                </div>
+
+                <ul id="list-todo"></ul>
+
+            </section>
+
+            <footer class="footer">
+                <span>TaskFlow</span>
+                <span>Produktivitas dimulai dari hal kecil.</span>
+            </footer>
+
+        </section>
+
+    </main>
+
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
